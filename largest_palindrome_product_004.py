@@ -12,28 +12,8 @@ class pal_finder():
 		else:
 			return 0
 
-
-	def get_palindromes(self):
-		a = '9' * self.digits
-		a = int(a)**2
-		print(a)
-		while not self.is_palindrome(a) and a > 0:
-			a -= 1
-			#if self.is_palindrome(a):
-		self.palidromes.append(a)
-		b = a
-		while self.is_palindrome(b):
-			b = b - 110
-			self.palidromes.append(b)
-			#print(b)
-		b = a
-		while self.is_palindrome(b):
-		 	b -= 1111
-		 	self.palidromes.append(b)
-
-		print(self.palidromes)
-
 	def make_list_of_palindromes(self):
+		print('Making list of large palindromes')
 		a = int(('9' * self.digits))**2
 		l = [x for x in range(math.floor(a*.9),a) if self.is_palindrome(x)]
 		# print(l)
@@ -56,11 +36,10 @@ class pal_finder():
 
 	def prune_dict(self):
 		d = self.factor_palindrome()
-		print('d is ',type(d))
 		print('pruning list of ')
 		for k in list(d.keys()):
 			if len(d[k]) < 2:
-				print(k, 'is removed for empty list')
+				#print(k, 'is removed for empty list')
 				del d[k]
 
 		# for k,v in d.keys():
